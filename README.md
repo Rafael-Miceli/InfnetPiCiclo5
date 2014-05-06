@@ -1,4 +1,4 @@
-Infnet P.i. Ciclo 5
+Infnet P.I. Ciclo 5
 ==============
 
 Repositório contendo todos os projetos integrados do 5° ciclo
