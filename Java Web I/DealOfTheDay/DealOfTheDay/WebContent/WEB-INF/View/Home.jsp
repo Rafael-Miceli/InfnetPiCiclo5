@@ -10,7 +10,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:out value="${Welcome}" /> 
+	<c:out value="${Welcome}" />
+	
+	<br>
+	<c:url value="DealDetails" var="urlDealDetail">
+		<c:param name="Id" value="1" />
+	</c:url>
+	
+	<a href="${urlDealDetail}" >
+		Detalhe de uma promoção
+	</a>
 
 </body>
 </html>

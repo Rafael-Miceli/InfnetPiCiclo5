@@ -13,11 +13,22 @@
 	<servlet-class>Controller.Home</servlet-class>	
   </servlet>
   
+  <servlet>
+  	<servlet-name>Details</servlet-name>
+	<servlet-class>Controller.Deal.Details</servlet-class>	
+  </servlet>
+  
   	
   <!-- Map Servlets -->	
   <servlet-mapping>
 	  <servlet-name>Home</servlet-name>
-	  <url-pattern>/Home.go</url-pattern>	
+	  <url-pattern>/Home.go</url-pattern>
+	  	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	  <servlet-name>Details</servlet-name>
+	  <url-pattern>/DealDetails</url-pattern>	
   </servlet-mapping>	
   
   
