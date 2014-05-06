@@ -1,15 +1,15 @@
-InfnetPiCiclo4
+Infnet P.i. Ciclo 5
 ==============
 
-Repositório contendo todos os projetos integrados do 4° ciclo
+Repositório contendo todos os projetos integrados do 5° ciclo
 
 
-#Ricardo = ?
+#Ricardo = Inglês Instrumental III & Java Web I (Módulo BuyDeal)
 
-#Rafael = ?
+#Rafael = Sistemas de Informação e Java Web I (Módulo Deal)
 
-#Fabio = ?
+#Fabio = Java Web I (Módulo User)
 
-#Alexandro = ?
+#Alexandro = Gerência de Projetos I
 
-#Alex = ?
+#Alex = Estatísticas e Métodos Empíricos II
