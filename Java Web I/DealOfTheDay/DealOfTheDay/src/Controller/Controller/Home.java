@@ -14,7 +14,7 @@ public class Home extends HttpServlet{
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub		
 		
-		req.setAttribute("Welcome", "Bem-víndo ao site de Compras coletivas");
+		req.setAttribute("Welcome", "Conteúdo dinâmico");
 		req.getRequestDispatcher("WEB-INF/View/Home.jsp").forward(req, resp);
 	}	
 }
