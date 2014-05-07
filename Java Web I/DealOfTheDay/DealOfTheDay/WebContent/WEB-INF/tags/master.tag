@@ -17,31 +17,10 @@
             </li>
         </ul>
     </div>
-    
-    <!-- Colocar a busca e o select de estados por aqui -->
 
-    <!-- Header -->
-
-    <header class="cabecalho">
-        <h1>Compras via web</h1>
-    </header>
-
-    <!-- Menu -->
-
-    <nav class="menu">
-        <div class="container">
-            <ul>
-                <li><a href="#">Categoria 1</a></li>
-                <li><a href="#">Categoria 2</a></li>
-                <li><a href="#">Categoria 3</a></li>
-                <li><a href="#">Categoria 4</a></li>
-            </ul>
-        </div>
-    </nav>
-
-	<div id="interface">
-  		<jsp:doBody/>
-  	</div>
+	
+	<jsp:doBody/>
+  	
   	
   	<footer class="rodape">
         <div class="container">

@@ -5,7 +5,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <m:master>
-
-	<c:out value="${DetailsModel.title}" />
+	<div id="interface">
 	
+		
+		
+		<c:out value="${DetailsModel.title}" />
+	</div>	
 </m:master>

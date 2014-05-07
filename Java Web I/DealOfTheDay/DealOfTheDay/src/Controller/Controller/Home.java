@@ -15,6 +15,6 @@ public class Home extends HttpServlet{
 		// TODO Auto-generated method stub		
 		
 		req.setAttribute("Welcome", "Conteúdo dinâmico");
-		req.getRequestDispatcher("WEB-INF/View/Home.jsp").forward(req, resp);
+		req.getRequestDispatcher("Home.jsp").forward(req, resp);
 	}	
 }
