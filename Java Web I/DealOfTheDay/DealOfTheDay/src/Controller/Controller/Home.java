@@ -27,10 +27,29 @@ public class Home extends HttpServlet{
 	{
 		//inicio de teste busca properties..............
 		Properties acessoPropertiesCategoria = new Properties();
-		HashMap todasCategoriasDoSistema = new HashMap();
-
 		acessoPropertiesCategoria = BuscaProperties.emArquivo("uteis/categoria.properties");
+		
+		//--jogando as properties dentro de hashMap--
+		/*
+		HashMap todasCategoriasDoSistema = new HashMap();
 		todasCategoriasDoSistema.putAll(acessoPropertiesCategoria);
+		*/
+		
+		//--jogando as properties dentro de array--
+		//depois que ja estiver funcioando aqui...implementar essa parte dentro Repositorio.*
+		List<Categoria> todasCategoriasDoSistema     = new ArrayList<Categoria>();
+		//todasCategoriasDoSistema = Repositorio.buscarCategorias();//implementar esse for abaixo, dentro Repositorio.*
+		qtd      = acessoPropertiesCategoria.size();
+		for (int i=1; i<qtd; i++)
+		{
+			Integer id   =i;
+			String valor = properties.getProperty(i);//pegando o conteudo do ID da vez
+			Categoria categoria = new Categoria();
+			categoria.setId(id);
+			categoria.setNome(valor);
+			todasCategoriasDoSistema.add(categoria); //juntando varios objetos numa mesma array
+		}
+		
 		//fim de teste busca properties................
 		
 		
@@ -38,7 +57,9 @@ public class Home extends HttpServlet{
 		req.setAttribute("todasCategoriasDoSistema", todasCategoriasDoSistema);
 		//fim de teste setAtribute................
 		
-		req.setAttribute("Welcome", "Conteúdo dinâmico");
+		
+		
+		req.setAttribute("Welcome", "Conteï¿½do dinï¿½mico");
 		req.getRequestDispatcher("Home.jsp").forward(req, resp);
 	}	
 	
