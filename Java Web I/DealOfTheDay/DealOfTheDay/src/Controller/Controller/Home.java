@@ -40,7 +40,7 @@ public class Home extends HttpServlet{
 		List<Categoria> todasCategoriasDoSistema     = new ArrayList<Categoria>();
 		//todasCategoriasDoSistema = Repositorio.buscarCategorias();//implementar esse for abaixo, dentro Repositorio.*
 		qtd      = acessoPropertiesCategoria.size();
-		for (int i=1; i<qtd; i++)
+		for (int i=1; i<=qtd; i++)
 		{
 			Integer id   =i;
 			String valor = properties.getProperty(i);//pegando o conteudo do ID da vez
