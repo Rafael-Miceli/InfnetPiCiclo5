@@ -18,6 +18,7 @@ public class DealRepository {
 		deal.setPrice(33.12);
 		deal.setRules("Regras");
 		deal.setTitle("Titulo da promoção");
+		deal.setTotalBuyed(3);
 		
 		Date date = new Date();
 		date.setDate(10);		

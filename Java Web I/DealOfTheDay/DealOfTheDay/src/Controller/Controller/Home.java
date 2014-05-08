@@ -1,6 +1,8 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +27,7 @@ public class Home extends HttpServlet{
 	{
 		//inicio de teste busca properties..............
 		Properties acessoPropertiesCategoria = new Properties();
-		todasCategoriasDoSistema = new HashMap();
+		HashMap todasCategoriasDoSistema = new HashMap();
 
 		acessoPropertiesCategoria = BuscaProperties.emArquivo("uteis/categoria.properties");
 		todasCategoriasDoSistema.putAll(acessoPropertiesCategoria);
@@ -36,7 +38,7 @@ public class Home extends HttpServlet{
 		req.setAttribute("todasCategoriasDoSistema", todasCategoriasDoSistema);
 		//fim de teste setAtribute................
 		
-		req.setAttribute("Welcome", "Conteï¿½do dinï¿½mico");
+		req.setAttribute("Welcome", "Conteúdo dinâmico");
 		req.getRequestDispatcher("Home.jsp").forward(req, resp);
 	}	
 	

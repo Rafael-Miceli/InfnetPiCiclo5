@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.comercial.uteis;
+package uteis;
 
 import java.io.IOException;
 import java.io.InputStream;

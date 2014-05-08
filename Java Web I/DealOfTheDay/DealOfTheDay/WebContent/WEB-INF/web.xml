@@ -18,6 +18,11 @@
 	<servlet-class>Controller.Deal.Details</servlet-class>	
   </servlet>
   
+  <servlet>
+  	<servlet-name>DealPayment</servlet-name>
+	<servlet-class>Controller.BuyDeal.DealPayment</servlet-class>	
+  </servlet>
+  
   	
   <!-- Map Servlets -->	
   <servlet-mapping>
@@ -29,7 +34,13 @@
   <servlet-mapping>
 	  <servlet-name>Details</servlet-name>
 	  <url-pattern>/DealDetails</url-pattern>	
-  </servlet-mapping>	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	  <servlet-name>DealPayment</servlet-name>
+	  <url-pattern>/DealPayment</url-pattern>	
+  </servlet-mapping>
+  	
   
   
   <welcome-file-list>

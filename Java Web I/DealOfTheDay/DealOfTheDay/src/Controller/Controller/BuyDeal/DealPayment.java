@@ -1,7 +1,6 @@
-package Controller.Deal;
+package Controller.BuyDeal;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import Model.Deal;
 import Service.DealService;
 
-public class Details extends HttpServlet{
-	
+public class DealPayment extends HttpServlet {
+
 	private DealService _dealService;
 	
-	public Details() {
+	public DealPayment() {
 		_dealService = new DealService();
 	}
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -30,10 +29,10 @@ public class Details extends HttpServlet{
 			Deal deal = _dealService.FindDeal(Id);
 			
 			req.setAttribute("DetailsModel", deal);
-			req.getRequestDispatcher("WEB-INF/View/Deal/Details.jsp").forward(req, resp);
+			req.getRequestDispatcher("WEB-INF/View/BuyDeal/Payment.jsp").forward(req, resp);
 		}
 		else
-			req.getRequestDispatcher("WEB-INF/View/Exception/Erro.jsp").forward(req, resp);
-	}	
-	
+			req.getRequestDispatcher("WEB-INF/View/Exception/Erro.jsp").forward(req, resp);		
+		
+	}
 }

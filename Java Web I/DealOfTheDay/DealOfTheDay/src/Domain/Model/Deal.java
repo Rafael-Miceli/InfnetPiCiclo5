@@ -11,6 +11,8 @@ public class Deal {
 	private String rules;
 	private Date validation;
 	private byte[] image;
+	private Integer totalBuyed;
+	
 	
 	public Integer getId() {
 		return id;
@@ -59,6 +61,13 @@ public class Deal {
 	}
 	public void setImage(byte[] image) {
 		this.image = image;
+	}
+	
+	public Integer getTotalBuyed() {
+		return totalBuyed;
+	}
+	public void setTotalBuyed(Integer totalBuyed) {
+		this.totalBuyed = totalBuyed;
 	}
 	
 }

@@ -7,8 +7,56 @@
 <m:master>
 	<div id="interface">
 	
+		<div id="DealSummary" style="width:350px; ">
+			<span>Oferta: <c:out value="${DetailsModel.title}" /></span>	
+			
+			<br>	
+			
+			<span>
+				<c:out value="${DetailsModel.description }" />			
+			</span>
+			
+			<br>
+			
+			<span>
+				Só R$<c:out value="${DetailsModel.price }" />			
+			</span>
+			
+			<br>
+			
+			<span>Tempo para compra</span>
+			<br>
+			<span><c:out value="${DetailsModel.validation }" /></span>
+			
+			<br>
+			
+			<span>Quantos já compraram: </span>
+			<span><c:out value="${DetailsModel.totalBuyed }" /></span>
+			
+			<br>
+			
+			<form method="get" action="DealPayment">
+				<input type="hidden" value="${DetailsModel.id }" name="Id"/>			
+				<input type="submit" value="Comprar" />
+			</form>
+		</div>
 		
+		<div id="DealImg" style="width:600px; ">
+				Imagem Aqui
 		
-		<c:out value="${DetailsModel.title}" />
+		</div>
+		
+		<div style="width:950px; margin-top: 30px">
+		
+			<div id="DealDetails" style="width:450px; margin-right: 50px; ">
+				<span><c:out value="${DetailsModel.rules }" /></span>
+			</div>
+			
+			<div id="DealRelationed" style="width:350px;">
+				Relacionados Aqui
+			
+			</div>
+			
+		</div>
 	</div>	
 </m:master>
