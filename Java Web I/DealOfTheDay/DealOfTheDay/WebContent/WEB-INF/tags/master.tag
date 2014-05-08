@@ -1,4 +1,6 @@
 <%@tag description="Simple Master Tag" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,6 +13,9 @@
 	<div class="top-bar">
         <ul>
             <li>
+            	
+            	<a href="ListDeals">Gerenciar Promoções</a>
+            	|
                 <a href="#">Cadastre-se</a>
                 |
                 <a href="#">Entrar</a>
