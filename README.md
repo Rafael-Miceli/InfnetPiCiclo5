@@ -8,7 +8,7 @@ Repositório contendo todos os projetos integrados do 5° ciclo
 
 #Rafael = Sistemas de Informação e Java Web I (Módulo Deal)
 
-#Fabio = Java Web I (Módulo User)
+#Fabio = Java Web I (Módulo User e Home)
 
 #Alexandro = Gerência de Projetos I
 
