@@ -21,7 +21,7 @@ public class Home extends HttpServlet{
 		this.processRequest(req, resp);
 	}
 
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
+	protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException
 	{
 		//inicio de teste busca properties..............
 		Properties acessoPropertiesCategoria = new Properties();
