@@ -25,7 +25,7 @@ public class Home extends HttpServlet{
 
 	protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException
 	{
-		/*
+		
 		//inicio de teste busca properties..............
 		Properties acessoPropertiesCategoria = new Properties();
 		acessoPropertiesCategoria = BuscaProperties.emArquivo("uteis/categoria.properties");
@@ -57,7 +57,7 @@ public class Home extends HttpServlet{
 		//inicio de teste setAtribute categoria com o HashMap acima ... para enviar para camada de visao
 		req.setAttribute("todasCategoriasDoSistema", todasCategoriasDoSistema);
 		//fim de teste setAtribute................
-		*/
+		
 		
 		
 		
