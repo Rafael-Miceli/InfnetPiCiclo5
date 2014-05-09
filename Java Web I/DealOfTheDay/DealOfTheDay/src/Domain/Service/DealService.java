@@ -22,4 +22,12 @@ public class DealService {
 	{
 		return _dealRepository.getAll();
 	}
+	
+	public void create(Deal deal) {
+		_dealRepository.add(deal);
+	}
+	
+	public void update(Deal deal) {
+		_dealRepository.update(deal);
+	}
 }

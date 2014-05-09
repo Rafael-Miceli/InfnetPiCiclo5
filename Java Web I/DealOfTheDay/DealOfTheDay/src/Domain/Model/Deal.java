@@ -12,6 +12,7 @@ public class Deal {
 	private Date validation;
 	private byte[] image;
 	private Integer totalBuyed;
+	private Categoria category;
 	
 	
 	public Integer getId() {
@@ -68,6 +69,13 @@ public class Deal {
 	}
 	public void setTotalBuyed(Integer totalBuyed) {
 		this.totalBuyed = totalBuyed;
+	}
+	
+	public Categoria getCategory() {
+		return category;
+	}
+	public void setCategory(Categoria category) {
+		this.category = category;
 	}
 	
 }

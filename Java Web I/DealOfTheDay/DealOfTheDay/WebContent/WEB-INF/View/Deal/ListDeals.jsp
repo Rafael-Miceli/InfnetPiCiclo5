@@ -18,6 +18,9 @@
 				<span>Titúlo</span>	
 			</th>
 			<th>
+				<span>Categoria</span>	
+			</th>
+			<th>
 				<span>Preço</span>
 			</th>
 			<th>
@@ -35,6 +38,9 @@
 			<tr>
 				<td>
 					<span><a href="${urlDeal}" ><c:out value="${deal.title}" /></a></span>
+				</td>
+				<td>
+					<span><c:out value="${deal.category.nome}" /></span>
 				</td>
 				<td>
 					<span><c:out value="${deal.price}" /></span>

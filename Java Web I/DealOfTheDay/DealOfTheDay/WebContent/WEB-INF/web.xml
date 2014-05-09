@@ -24,6 +24,11 @@
   </servlet>
   
   <servlet>
+  	<servlet-name>Deal</servlet-name>
+	<servlet-class>Controller.Deal.Deal</servlet-class>	
+  </servlet>
+  
+  <servlet>
   	<servlet-name>DealPayment</servlet-name>
 	<servlet-class>Controller.BuyDeal.DealPayment</servlet-class>	
   </servlet>  
@@ -45,6 +50,11 @@
   <servlet-mapping>
 	  <servlet-name>ListDeals</servlet-name>
 	  <url-pattern>/ListDeals</url-pattern>	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	  <servlet-name>Deal</servlet-name>
+	  <url-pattern>/Deal</url-pattern>	
   </servlet-mapping>
   
   <servlet-mapping>
