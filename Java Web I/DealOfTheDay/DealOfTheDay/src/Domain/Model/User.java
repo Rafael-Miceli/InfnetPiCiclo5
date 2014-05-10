@@ -11,7 +11,7 @@ public class User {
 	private String salt;
 	private Date birth;
 	private String email;
-	private Integer idRole;
+	private Role role;
 	
 	
 	public Integer getId() {
@@ -63,11 +63,11 @@ public class User {
 		this.email = email;
 	}
 	
-	public Integer getIdRole() {
-		return idRole;
+	public Role getRole() {
+		return role;
 	}
-	public void setIdRole(Integer idRole) {
-		this.idRole = idRole;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	
 }

@@ -1,5 +1,5 @@
 <%@tag description="Simple Master Tag" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,13 +12,14 @@
 <body>
 	<div class="top-bar">
         <ul>
-            <li>
-            	
-            	<a href="ListDeals">Gerenciar Promoções</a>
-            	|
+            <li>            	
+            	<c:if test="${sessionScope.Role != null && sessionScope.Role == 'Manager' }">            	
+	            	<a href="ListDeals">Gerenciar Promoções</a>
+	            	|
+            	</c:if>
                 <a href="#">Cadastre-se</a>
                 |
-                <a href="#">Entrar</a>
+                <a href="Login">Entrar</a>
             </li>
         </ul>
     </div>

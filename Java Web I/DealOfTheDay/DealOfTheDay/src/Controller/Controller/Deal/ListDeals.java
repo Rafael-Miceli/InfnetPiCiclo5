@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Model.Deal;
+import PaperAuthentication.ManagerHttpServlet;
 import Service.DealService;
 
-public class ListDeals extends HttpServlet {
+public class ListDeals extends ManagerHttpServlet {
 	
 	private DealService _dealService;
 
@@ -22,7 +23,11 @@ public class ListDeals extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
+		super.doGet(req, resp);
+	}
+	
+	@Override
+	protected void PerformGetOperations(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Deal> deals = _dealService.listDeals();
 		
 		req.setAttribute("deals", deals);

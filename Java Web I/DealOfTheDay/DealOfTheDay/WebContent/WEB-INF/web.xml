@@ -31,6 +31,11 @@
   <servlet>
   	<servlet-name>DealPayment</servlet-name>
 	<servlet-class>Controller.BuyDeal.DealPayment</servlet-class>	
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+	<servlet-class>Controller.Login</servlet-class>	
   </servlet>  
   
   
@@ -38,8 +43,12 @@
   <!-- Map Servlets -->	
   <servlet-mapping>
 	  <servlet-name>Home</servlet-name>
-	  <url-pattern>/Home.go</url-pattern>
-	  	
+	  <url-pattern>/Home.go</url-pattern>	  	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	  <servlet-name>Login</servlet-name>
+	  <url-pattern>/Login</url-pattern>	  	
   </servlet-mapping>
   
   <servlet-mapping>

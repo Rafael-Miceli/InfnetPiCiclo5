@@ -92,9 +92,9 @@ public class DealRepository {
 		dealToUpdate.setTitle(deal.getTitle());
 		dealToUpdate.setDescription(deal.getDescription());
 		dealToUpdate.setCategory(deal.getCategory());
-		//dealToUpdate.setPrice(deal.getPrice());
-		//dealToUpdate.setValidation(deal.getValidation());
+		dealToUpdate.setPrice(deal.getPrice());		
 		dealToUpdate.setRules(deal.getRules());
+		dealToUpdate.setValidation(deal.getValidation());
 		//dealToUpdate.setImage(deal.getImage());
 	}
 

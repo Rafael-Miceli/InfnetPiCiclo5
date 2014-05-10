@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Model.Deal;
+import PaperAuthentication.ClientHttpServlet;
 import Service.DealService;
 
-public class DealPayment extends HttpServlet {
+public class DealPayment extends ClientHttpServlet {
 
 	private DealService _dealService;
 	
 	public DealPayment() {
 		_dealService = new DealService();
 	}
-
+	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	protected void PerformGetOperations(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException {
 		
 		Integer Id = Web.WebUtil.GetIdFromQueryString(req.getQueryString());
 		
@@ -32,7 +33,6 @@ public class DealPayment extends HttpServlet {
 			req.getRequestDispatcher("WEB-INF/View/BuyDeal/Payment.jsp").forward(req, resp);
 		}
 		else
-			req.getRequestDispatcher("WEB-INF/View/Exception/Erro.jsp").forward(req, resp);		
-		
+			req.getRequestDispatcher("WEB-INF/View/Exception/Erro.jsp").forward(req, resp);
 	}
 }

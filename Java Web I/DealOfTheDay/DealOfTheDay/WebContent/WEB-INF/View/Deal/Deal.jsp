@@ -4,7 +4,7 @@
 <%@ taglib prefix="m" tagdir="/WEB-INF/tags" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<m:master>
+<m:master>	
 	<div id="interface">
 		<form method="post" action="Deal">
 			<div id="DealSummary" style="width:350px; ">
@@ -25,7 +25,7 @@
 				
 				<span>Tempo para compra</span>
 				<br>
-				<input type="text" name="txtValidation" value="${DealModel.validation}"/>
+				<input type="text" name="txtValidation" value="${DealValidation}"/>
 										
 			</div>
 			
@@ -60,5 +60,11 @@
 			
 			<input type="submit" value="Salvar"> <input id="cancelar" type="button" value="Cancelar" > 
 		</form>
-	</div>	
+	</div>
+	
+	<script type="text/javascript" >
+		$("#cancelar").click(function(){
+			window.location.href = "ListDeals";
+		});
+	</script>	
 </m:master>

@@ -54,5 +54,9 @@
 			</tr>		
 		</c:forEach>
 	</table>
+	<br>
+	<div>
+		<a href="Home.go">Retornar para Home</a>
+	</div>
 	</div>	
 </m:master>

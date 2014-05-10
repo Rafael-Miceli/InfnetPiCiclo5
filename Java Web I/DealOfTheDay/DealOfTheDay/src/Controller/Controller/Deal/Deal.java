@@ -1,6 +1,8 @@
 package Controller.Deal;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,10 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Model.Categoria;
+import PaperAuthentication.ManagerHttpServlet;
 import Service.CategoriaService;
 import Service.DealService;
 
-public class Deal extends HttpServlet{
+public class Deal extends ManagerHttpServlet{
 	
 	private DealService _dealService;
 	private CategoriaService _categoriaService;
@@ -25,15 +28,23 @@ public class Deal extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		super.doGet(req, resp);
+	}
+	
+	@Override
+	protected void PerformGetOperations(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException {
 		
 		Integer Id = Web.WebUtil.GetIdFromQueryString(req.getQueryString());
 		
 		List<Categoria> categories = _categoriaService.listCategories();
 		req.setAttribute("Categories", categories);
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH");
 		
 		if(Id > 0)
 		{
-			Model.Deal deal = _dealService.FindDeal(Id);		
+			Model.Deal deal = _dealService.FindDeal(Id);
+			req.setAttribute("DealValidation", formatter.format(deal.getValidation()));
 			req.setAttribute("DealModel", deal);
 		}
 		
@@ -45,18 +56,24 @@ public class Deal extends HttpServlet{
 			throws ServletException, IOException {
 		
 		Model.Deal deal = new Model.Deal();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH");		
 		
-		deal.setId(Integer.parseInt(req.getParameter("idDeal")));
 		deal.setTitle(req.getParameter("txtTitle"));
 		deal.setDescription(req.getParameter("txtDescription"));
-		//deal.setPrice(Double.parseDouble(req.getParameter("txtPrice")));
+		deal.setPrice(Double.parseDouble(req.getParameter("txtPrice")));
 		deal.setCategory(_categoriaService.findCategory(Integer.parseInt(req.getParameter("ddlCategory"))));
 		deal.setRules(req.getParameter("txtRules"));
+		try {
+			deal.setValidation(formatter.parse(req.getParameter("txtValidation")));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		
 		if (req.getParameter("idDeal") == null || req.getParameter("idDeal") == "") {
 			_dealService.create(deal);
 		}
 		else {
+			deal.setId(Integer.parseInt(req.getParameter("idDeal")));
 			_dealService.update(deal);
 		}
 		
