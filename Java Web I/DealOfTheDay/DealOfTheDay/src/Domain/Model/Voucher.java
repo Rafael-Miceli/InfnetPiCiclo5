@@ -2,10 +2,10 @@ package Model;
 
 public class Voucher {
 	
-	private Integer id;
-	private Integer dealId;
+	private Integer id;	
 	private Boolean valid;
 	private String code;
+	private Deal deal;
 	
 	
 	public Integer getId() {
@@ -13,13 +13,6 @@ public class Voucher {
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	
-	public Integer getDealId() {
-		return dealId;
-	}
-	public void setDealId(Integer dealId) {
-		this.dealId = dealId;
 	}
 	
 	public Boolean getValid() {
@@ -34,6 +27,13 @@ public class Voucher {
 	}
 	public void setCode(String code) {
 		this.code = code;
+	}
+	
+	public Deal getDeal() {
+		return deal;
+	}
+	public void setDeal(Deal deal) {
+		this.deal = deal;
 	}
 	
 }

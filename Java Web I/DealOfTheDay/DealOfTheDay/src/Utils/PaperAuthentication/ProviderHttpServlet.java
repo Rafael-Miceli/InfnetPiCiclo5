@@ -9,17 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpUtils;
 
-public class ProviderHttpServlet extends HttpServlet{
+public class ProviderHttpServlet extends CustomHttpServlet{	
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		
-		HttpSession session = req.getSession();
-		
-		if(session.getAttribute("Role") == null || session.getAttribute("Role").toString() != "Provider") {
-			session.setAttribute("target", HttpUtils.getRequestURL(req).toString());
-			req.getRequestDispatcher("WEB-INF/View/User/Login.jsp").forward(req, resp);
-		}
+	protected Boolean isAuthorized(HttpSession session) {		
+		return session.getAttribute("Role") != null && session.getAttribute("Role").toString() == "Provider";
 	}
 }

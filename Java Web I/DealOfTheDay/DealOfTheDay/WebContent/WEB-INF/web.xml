@@ -38,7 +38,10 @@
 	<servlet-class>Controller.Login</servlet-class>	
   </servlet>  
   
-  
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+	<servlet-class>Controller.Logout</servlet-class>	
+  </servlet>  
   	
   <!-- Map Servlets -->	
   <servlet-mapping>
@@ -49,6 +52,11 @@
   <servlet-mapping>
 	  <servlet-name>Login</servlet-name>
 	  <url-pattern>/Login</url-pattern>	  	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	  <servlet-name>Logout</servlet-name>
+	  <url-pattern>/Logout</url-pattern>	  	
   </servlet-mapping>
   
   <servlet-mapping>

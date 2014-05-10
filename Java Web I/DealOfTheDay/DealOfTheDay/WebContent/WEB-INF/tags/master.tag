@@ -17,9 +17,19 @@
 	            	<a href="ListDeals">Gerenciar Promoções</a>
 	            	|
             	</c:if>
-                <a href="#">Cadastre-se</a>
-                |
-                <a href="Login">Entrar</a>
+            	
+            	<c:choose>
+            		<c:when test="${sessionScope.UserName != null}">
+            			<span> Bem-vindo ${sessionScope.UserName} </span>
+		            	|
+		            	<a href="Logout">Sair</a>
+            		</c:when>
+            		<c:otherwise>
+            			<a href="#">Cadastre-se</a>
+		                |
+		                <a href="Login">Entrar</a>
+            		</c:otherwise>
+            	</c:choose>
             </li>
         </ul>
     </div>
