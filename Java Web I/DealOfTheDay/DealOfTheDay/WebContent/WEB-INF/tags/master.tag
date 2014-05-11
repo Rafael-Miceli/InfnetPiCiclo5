@@ -13,8 +13,13 @@
 	<div class="top-bar">
         <ul>
             <li>            	
-            	<c:if test="${sessionScope.Role != null && sessionScope.Role == 'Manager' }">            	
+            	<c:if test="${sessionScope.Role != null && sessionScope.Role.equals('Manager') }">            	
 	            	<a href="ListDeals">Gerenciar Promoções</a>
+	            	|
+            	</c:if>
+            	
+            	<c:if test="${sessionScope.Role != null && sessionScope.Role.equals('Provider') }">            	
+	            	<a href="ValidateVoucher">Validar Voucher</a>
 	            	|
             	</c:if>
             	

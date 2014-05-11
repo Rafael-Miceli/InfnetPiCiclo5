@@ -41,7 +41,13 @@
   <servlet>
   	<servlet-name>Logout</servlet-name>
 	<servlet-class>Controller.Logout</servlet-class>	
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>ValidateVoucher</servlet-name>
+	<servlet-class>Controller.Deal.ValidateVoucher</servlet-class>	
   </servlet>  
+  
   	
   <!-- Map Servlets -->	
   <servlet-mapping>
@@ -75,8 +81,13 @@
   </servlet-mapping>
   
   <servlet-mapping>
-	  <servlet-name>DealPayment</servlet-name>
-	  <url-pattern>/DealPayment</url-pattern>	
+	  <servlet-name>Deal</servlet-name>
+	  <url-pattern>/Deal</url-pattern>	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	  <servlet-name>ValidateVoucher</servlet-name>
+	  <url-pattern>/ValidateVoucher</url-pattern>	
   </servlet-mapping>
   	
   

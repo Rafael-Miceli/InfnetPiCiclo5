@@ -13,6 +13,6 @@ public class ManagerHttpServlet extends CustomHttpServlet{
 	
 	@Override
 	protected Boolean isAuthorized(HttpSession session) {	
-		return session.getAttribute("Role") != null && session.getAttribute("Role").toString() == "Manager";		
+		return session.getAttribute("Role") != null && session.getAttribute("Role").toString().equals("Manager");		
 	}  
 }
