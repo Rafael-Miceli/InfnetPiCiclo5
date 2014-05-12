@@ -17,14 +17,9 @@ public class ListDeals extends ManagerHttpServlet {
 	private DealService _dealService;
 
 	public ListDeals() {
+		//Poor Mans Dependency Injection
 		_dealService = new DealService();
-	}
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		super.doGet(req, resp);
-	}
+	}	
 	
 	@Override
 	protected void PerformGetOperations(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,5 +27,15 @@ public class ListDeals extends ManagerHttpServlet {
 		
 		req.setAttribute("deals", deals);
 		req.getRequestDispatcher("WEB-INF/View/Deal/ListDeals.jsp").forward(req, resp);		
+	}
+	
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		
+		Integer Id = Web.WebUtil.GetIdFromQueryString(req.getQueryString());
+		
+		if(Id > 0) 
+			_dealService.remove(Id);
 	}
 }

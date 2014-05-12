@@ -21,14 +21,9 @@ public class Deal extends ManagerHttpServlet{
 	private CategoriaService _categoriaService;
 	
 	public Deal() {
+		//Poor Mans Dependency Injection
 		_dealService = new DealService();
 		_categoriaService = new CategoriaService();
-	}
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		super.doGet(req, resp);
 	}
 	
 	@Override

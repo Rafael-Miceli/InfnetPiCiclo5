@@ -9,6 +9,7 @@ public class VoucherService {
 	private Voucher _voucherToValidate;
 
 	public VoucherService() {
+		//Poor Mans Dependency Injection
 		_voucherRepository = new VoucherRepository();
 	}
 	

@@ -16,6 +16,7 @@ public class DealPayment extends ClientHttpServlet {
 	private DealService _dealService;
 	
 	public DealPayment() {
+		//Poor Mans Dependency Injection
 		_dealService = new DealService();
 	}
 	

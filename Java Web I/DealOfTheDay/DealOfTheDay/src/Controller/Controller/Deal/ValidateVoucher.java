@@ -15,6 +15,7 @@ public class ValidateVoucher extends ProviderHttpServlet {
 	private VoucherService _voucherService;
 
 	public ValidateVoucher() {
+		//Poor Mans Dependency Injection
 		_voucherService = new VoucherService();
 	}
 	

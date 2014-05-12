@@ -2,6 +2,7 @@ package Controller.Deal;
 
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,7 @@ public class Details extends HttpServlet{
 	private DealService _dealService;
 	
 	public Details() {
+		//Poor Mans Dependency Injection
 		_dealService = new DealService();
 	}
 	
@@ -28,8 +30,11 @@ public class Details extends HttpServlet{
 		if(Id > 0)		
 		{
 			Deal deal = _dealService.FindDeal(Id);
+			List<Deal> relationedDeals = _dealService.getFirstFourDealsByCategory(deal.getCategory().getId());
 			
 			req.setAttribute("DetailsModel", deal);
+			req.setAttribute("RelationedDeals", relationedDeals);
+			
 			req.getRequestDispatcher("WEB-INF/View/Deal/Details.jsp").forward(req, resp);
 		}
 		else

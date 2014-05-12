@@ -9,6 +9,7 @@ public class UserService {
 	private UserRepository _userRepository;
 
 	public UserService() {
+		//Poor Mans Dependency Injection
 		_userRepository = new UserRepository();
 	}
 	

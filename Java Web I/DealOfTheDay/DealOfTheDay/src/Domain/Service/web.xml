@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+	id="WebApp_ID" version="3.0">
+	
+  <display-name>DealOfTheDay</display-name>
+  
+  <!-- Register Servlets -->
+  <servlet>
+	<servlet-name>Home</servlet-name>
+	<servlet-class>Controller.Home</servlet-class>	
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>Details</servlet-name>
+	<servlet-class>Controller.Deal.Details</servlet-class>	
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>ListDeals</servlet-name>
+	<servlet-class>Controller.Deal.ListDeals</servlet-class>	
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>Deal</servlet-name>
+	<servlet-class>Controller.Deal.Deal</servlet-class>	
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>DealPayment</servlet-name>
+	<servlet-class>Controller.BuyDeal.DealPayment</servlet-class>	
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+	<servlet-class>Controller.Login</servlet-class>	
+  </servlet>  
+  
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+	<servlet-class>Controller.Logout</servlet-class>	
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>ValidateVoucher</servlet-name>
+	<servlet-class>Controller.Deal.ValidateVoucher</servlet-class>	
+  </servlet>  
+  
+  	
+  <!-- Map Servlets -->	
+  <servlet-mapping>
+	  <servlet-name>Home</servlet-name>
+	  <url-pattern>/Home.go</url-pattern>	  	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	  <servlet-name>Login</servlet-name>
+	  <url-pattern>/Login</url-pattern>	  	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	  <servlet-name>Logout</servlet-name>
+	  <url-pattern>/Logout</url-pattern>	  	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	  <servlet-name>Details</servlet-name>
+	  <url-pattern>/DealDetails</url-pattern>	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	  <servlet-name>ListDeals</servlet-name>
+	  <url-pattern>/ListDeals</url-pattern>	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	  <servlet-name>Deal</servlet-name>
+	  <url-pattern>/Deal</url-pattern>	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	  <servlet-name>Deal</servlet-name>
+	  <url-pattern>/Deal</url-pattern>	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	  <servlet-name>ValidateVoucher</servlet-name>
+	  <url-pattern>/ValidateVoucher</url-pattern>	
+  </servlet-mapping>
+  	
+  
+  
+  <welcome-file-list>
+    <welcome-file>Home.go</welcome-file>
+  </welcome-file-list>
+</web-app>

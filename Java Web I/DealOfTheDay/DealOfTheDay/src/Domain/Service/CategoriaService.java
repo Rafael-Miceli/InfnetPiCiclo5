@@ -10,6 +10,7 @@ public class CategoriaService {
 	private CategoriaRepository _categoryRepository;
 	
 	public CategoriaService() {
+		//Poor Mans Dependency Injection
 		_categoryRepository = new CategoriaRepository();
 	}
 	

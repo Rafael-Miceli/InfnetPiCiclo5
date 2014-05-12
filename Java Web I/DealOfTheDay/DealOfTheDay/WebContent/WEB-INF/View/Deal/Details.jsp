@@ -53,7 +53,9 @@
 			</div>
 			
 			<div id="DealRelationed" style="width:350px;">
-				Relacionados Aqui
+				<c:forEach var="relationedDeal" items="${RelationedDeals}">
+					<span>${relationedDeal.title}</span>
+				</c:forEach>			
 			
 			</div>
 			

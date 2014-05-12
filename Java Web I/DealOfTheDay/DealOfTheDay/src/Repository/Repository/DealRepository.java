@@ -30,6 +30,8 @@ public class DealRepository {
 		deal1.setTitle("Titulo da promoção 1");
 		deal1.setTotalBuyed(3);
 		deal1.setCategory(categoria1);
+		deal1.setIsSpotlight(true);
+		deal1.setIsDealOfTheDay(false);
 		
 		Date date = new Date();
 		date.setDate(1);		
@@ -44,6 +46,8 @@ public class DealRepository {
 		deal2.setTitle("Titulo da promoção 2");
 		deal2.setTotalBuyed(175);
 		deal2.setCategory(categoria1);
+		deal2.setIsSpotlight(false);
+		deal2.setIsDealOfTheDay(true);
 		
 		date.setDate(2);		
 		deal2.setValidation(date);
@@ -56,6 +60,8 @@ public class DealRepository {
 		deal3.setTitle("Titulo da promoção 3");
 		deal3.setTotalBuyed(42);
 		deal3.setCategory(categoria2);
+		deal3.setIsSpotlight(false);
+		deal3.setIsDealOfTheDay(false);
 		
 		date.setDate(2);		
 		deal3.setValidation(date);
@@ -96,6 +102,11 @@ public class DealRepository {
 		dealToUpdate.setRules(deal.getRules());
 		dealToUpdate.setValidation(deal.getValidation());
 		//dealToUpdate.setImage(deal.getImage());
+	}
+	
+	public void delete(Integer id) {
+		Deal dealToDelete = GetDeal(id);		
+		_deals.remove(dealToDelete);
 	}
 
 }

@@ -13,6 +13,9 @@ public class Deal {
 	private byte[] image;
 	private Integer totalBuyed;
 	private Categoria category;
+	private Boolean isSpotlight;
+	private Boolean isDealOfTheDay;
+	private City city;
 	
 	
 	public Integer getId() {
@@ -76,6 +79,27 @@ public class Deal {
 	}
 	public void setCategory(Categoria category) {
 		this.category = category;
+	}
+	
+	public Boolean getIsSpotlight() {
+		return isSpotlight;
+	}
+	public void setIsSpotlight(Boolean isSpotlight) {
+		this.isSpotlight = isSpotlight;
+	}
+	
+	public Boolean getIsDealOfTheDay() {
+		return isDealOfTheDay;
+	}
+	public void setIsDealOfTheDay(Boolean isDealOfTheDay) {
+		this.isDealOfTheDay = isDealOfTheDay;
+	}
+	
+	public City getCity() {
+		return city;
+	}
+	public void setCity(City city) {
+		this.city = city;
 	}
 	
 }
