@@ -10,6 +10,13 @@
 
     <!-- Header -->
 
+	<span>Estado</span>
+	<select name="ddlState">
+		<c:forEach items="${States}" var="state">
+			<option value="${state.id}" ${state.id == StateId ? 'selected' : '' } >${state.name}</option>
+		</c:forEach>
+	</select>
+	
     <header class="cabecalho">
         <h1>Compras via web</h1>
     </header>
@@ -19,25 +26,24 @@
     <nav class="menu">
         <div class="container">
             <ul>
-                <li><a href="#">Categoria 1</a></li>
-                <li><a href="#">Categoria 2</a></li>
-                <li><a href="#">Categoria 3</a></li>
-                <li><a href="#">Categoria 4</a></li>
+            	<c:forEach var="category" items="${Categories}">
+            		<li><a href="#"><c:out value="${category.nome}" /></a></li>
+            	</c:forEach>                
             </ul>
         </div>
     </nav>
     
     <div id="interface">
-
-		<c:out value="${Welcome}" />
 		
-		<br>
-		<c:url value="DealDetails" var="urlDealDetail">
-			<c:param name="Id" value="1" />
-		</c:url>
+		<c:forEach var="spotlight" items="${SpotLightDeal}">
+			<c:url value="DealDetails" var="urlDealDetail">
+				<c:param name="Id" value="${spotlight.id}" />
+			</c:url>
+					
+			<a href="${urlDealDetail}" > ${spotlight.title} </a>
+			<br>				
+		</c:forEach>	
+				
 		
-		<a href="${urlDealDetail}" >
-			Detalhe de uma promoção
-		</a>
 	</div>
 </m:master>

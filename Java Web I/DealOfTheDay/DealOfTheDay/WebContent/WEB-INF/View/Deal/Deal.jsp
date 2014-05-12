@@ -34,7 +34,7 @@
 				<span>Categoria</span>
 				<select name="ddlCategory">
 					<c:forEach items="${Categories}" var="category">
-						<option value="${category.id}" ${category.id == DealModel.category.id ? 'selected' : '' }><c:out value="${category.id}" /></option>
+						<option value="${category.id}" ${category.id == DealModel.category.id ? 'selected' : '' }>${category.nome}</option>
 					</c:forEach>
 				</select>
 				
@@ -46,6 +46,23 @@
 			</div>
 			
 			<div style="width:950px; margin-top: 30px">
+			
+				<span>Estado</span>
+				<select name="ddlState">
+					<c:forEach items="${States}" var="state">
+						<option value="${state.id}" ${state.id == DealModel.state.id ? 'selected' : '' } >${state.name}</option>
+					</c:forEach>
+				</select>
+				
+				<br>
+			
+				<span>É promoção em destaque?</span>
+				<input type="checkbox" name="chkIsSpotlight" value="true" ${isSpotlight.equals('true') ? 'checked' : '' } />
+				<br>
+				
+				<span>É promoção do dia?</span>
+				<input type="checkbox" name="chkIsDealOfTheDay" value="true" ${isDealOfTheDay.equals('true') ? 'checked' : '' } />
+				<br>
 				
 				<span>Regras da promoção</span>
 				<br>

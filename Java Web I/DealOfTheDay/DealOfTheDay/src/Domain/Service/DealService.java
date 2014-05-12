@@ -49,6 +49,61 @@ public class DealService {
 		return dealsOfCategory;
 	}
 	
+	public List<Deal> listDealsByState(Integer stateId) {
+		
+		List<Deal> dealsOfState = new ArrayList<Deal>();		
+		
+		for(Deal deal :  _dealRepository.getAll()) 
+			if (deal.getState().getId() == stateId)
+				dealsOfState.add(deal);
+		
+		return dealsOfState;
+	}
+	
+	public Deal findDealOfTheDay() {
+		
+		List<Deal> deals = listDeals();
+		
+		for (Deal deal : deals)
+			if(deal.getIsDealOfTheDay())
+				return deal;
+		
+		return null;
+	}
+	
+	public Deal findDealOfTheDayByState(Integer stateId) {
+		
+		List<Deal> deals = listDealsByState(stateId);
+		
+		for (Deal deal : deals)
+			if(deal.getIsDealOfTheDay())
+				return deal;
+		
+		return findDealOfTheDay();
+	}
+	
+	public List<Deal> listSpotlights() {
+		
+		List<Deal> dealsSpotlight = new ArrayList<Deal>();
+		
+		for (Deal deal : listDeals())
+			if(deal.getIsSpotlight())
+				dealsSpotlight.add(deal);
+		
+		return dealsSpotlight;
+	}
+	
+	public List<Deal> listSpotlightsByState(Integer stateId) {
+		
+		List<Deal> dealsSpotlight = new ArrayList<Deal>();
+		
+		for (Deal deal : listDealsByState(stateId))
+			if(deal.getIsSpotlight())
+				dealsSpotlight.add(deal);
+		
+		return dealsSpotlight;
+	}
+	
 	public void create(Deal deal) {
 		_dealRepository.add(deal);
 	}

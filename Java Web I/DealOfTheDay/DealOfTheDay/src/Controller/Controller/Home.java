@@ -6,20 +6,65 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.Categoria;
+import Model.Deal;
+import Repository.DealRepository;
+import Service.CategoriaService;
+import Service.DealService;
+import Service.StateService;
 
 import uteis.BuscaProperties; //testar caminho do import...estou sem ambiente eclipse aqui no trabalho
 
 public class Home extends HttpServlet{
+	
+	private CategoriaService _categoryService;
+	private DealService _dealService;
+	private StateService _stateService;
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		_categoryService = new CategoriaService();
+		_dealService = new DealService((DealRepository)config.getServletContext().getAttribute("dealRepository"));
+		_stateService = new StateService();
+	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		this.processRequest(req, resp);
+		
+		HttpSession session = req.getSession();
+		List<Deal> spotlights;
+		Deal dealOfTheDay;
+		Integer stateId = session.getAttribute("State") != null ? Integer.parseInt(session.getAttribute("State").toString()) : 0;
+		
+		req.setAttribute("Categories", _categoryService.listCategories());
+		req.setAttribute("States", _stateService.listStates());
+		req.setAttribute("StateId", stateId);
+		
+		if (stateId > 0)
+		{
+			dealOfTheDay = _dealService.findDealOfTheDayByState(stateId);
+			spotlights = _dealService.listSpotlightsByState(stateId);
+		}
+		else
+		{
+			dealOfTheDay = _dealService.findDealOfTheDay();
+			spotlights = _dealService.listSpotlights();
+		}
+		
+		
+		req.setAttribute("SpotLightDeal", spotlights);
+		req.setAttribute("DealOfTheDay", dealOfTheDay);
+		
+		
+		
+		req.getRequestDispatcher("Home.jsp").forward(req, resp);
 	}
 	
 	@Override

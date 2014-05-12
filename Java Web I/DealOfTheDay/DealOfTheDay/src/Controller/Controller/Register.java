@@ -61,6 +61,7 @@ public class Register extends HttpServlet{
 		
 		session.setAttribute("UserName", user.getName());
 		session.setAttribute("Role", user.getRole().getName());
+		session.setAttribute("State", user.getState().getId());
 		
 		req.getRequestDispatcher("Home.go").forward(req, resp);
 				

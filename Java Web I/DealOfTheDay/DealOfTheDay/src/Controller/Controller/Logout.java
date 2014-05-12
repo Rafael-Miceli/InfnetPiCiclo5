@@ -17,6 +17,7 @@ public class Logout extends HttpServlet{
 		
 		session.setAttribute("UserName", null);
 		session.setAttribute("Role", null);
+		session.setAttribute("State", null);
 		
 		req.getRequestDispatcher("Home.go").forward(req, resp);
 	}	

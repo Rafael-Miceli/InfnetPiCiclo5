@@ -12,22 +12,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Model.Categoria;
+import Model.State;
 import PaperAuthentication.ManagerHttpServlet;
 import Repository.DealRepository;
 import Repository.UserRepository;
 import Service.CategoriaService;
 import Service.DealService;
+import Service.StateService;
 
 public class Deal extends ManagerHttpServlet{
 	
 	private DealService _dealService;
 	private CategoriaService _categoriaService;
+	private StateService _stateService;
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		//Poor Mans Dependency Injection
 		_dealService = new DealService((DealRepository)config.getServletContext().getAttribute("dealRepository"));
 		_categoriaService = new CategoriaService();
+		_stateService = new StateService();
 	}
 	
 	@Override
@@ -37,13 +41,19 @@ public class Deal extends ManagerHttpServlet{
 		Integer Id = Web.WebUtil.GetIdFromQueryString(req.getQueryString());
 		
 		List<Categoria> categories = _categoriaService.listCategories();
+		List<State> states = _stateService.listStates();
+		
 		req.setAttribute("Categories", categories);
+		req.setAttribute("States", states);
+		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH");
 		
 		if(Id > 0)
 		{
 			Model.Deal deal = _dealService.FindDeal(Id);
 			req.setAttribute("DealValidation", formatter.format(deal.getValidation()));
+			req.setAttribute("isSpotlight", deal.getIsSpotlight().toString());
+			req.setAttribute("isDealOfTheDay", deal.getIsDealOfTheDay().toString());
 			req.setAttribute("DealModel", deal);
 		}
 		
@@ -61,7 +71,19 @@ public class Deal extends ManagerHttpServlet{
 		deal.setDescription(req.getParameter("txtDescription"));
 		deal.setPrice(Double.parseDouble(req.getParameter("txtPrice")));
 		deal.setCategory(_categoriaService.findCategory(Integer.parseInt(req.getParameter("ddlCategory"))));
+		deal.setState(_stateService.find(Integer.parseInt(req.getParameter("ddlState"))));
 		deal.setRules(req.getParameter("txtRules"));
+		
+		if(req.getParameter("chkIsSpotlight") != null) 
+			deal.setIsSpotlight(true);
+		else
+			deal.setIsSpotlight(false);
+		
+		if(req.getParameter("chkIsDealOfTheDay") != null) 
+			deal.setIsDealOfTheDay(true);
+		else
+			deal.setIsDealOfTheDay(false);
+		
 		try {
 			deal.setValidation(formatter.parse(req.getParameter("txtValidation")));
 		} catch (ParseException e) {

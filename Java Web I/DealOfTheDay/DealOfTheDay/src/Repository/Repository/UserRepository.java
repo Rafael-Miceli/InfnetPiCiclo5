@@ -4,15 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.Role;
+import Model.State;
 import Model.User;
 
 public class UserRepository {
 
-	private List<User> _users;	
+	private List<User> _users;
+	private StateRepository _stateRepository;
 
 	public UserRepository() {
 		
-		List<Role> roles = new RoleRepository().getAll();		
+		_stateRepository = new StateRepository();
+		
+		List<Role> roles = new RoleRepository().getAll();	
+		List<State> states = _stateRepository.getAll();
 		
 		User admin = new User();
 		admin.setId(1);
@@ -20,6 +25,7 @@ public class UserRepository {
 		admin.setName("Rafael");
 		admin.setPassword("123");
 		admin.setRole(roles.get(0));
+		admin.setState(states.get(0));
 		
 		User provider = new User();
 		provider.setId(2);
@@ -27,6 +33,7 @@ public class UserRepository {
 		provider.setName("Bagulho");
 		provider.setRole(roles.get(1));
 		provider.setPassword("321");
+		admin.setState(states.get(1));
 		
 		_users = new ArrayList<User>();
 		_users.add(admin);
