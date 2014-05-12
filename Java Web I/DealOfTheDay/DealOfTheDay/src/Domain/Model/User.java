@@ -12,6 +12,7 @@ public class User {
 	private Date birth;
 	private String email;
 	private Role role;
+	private State state;
 	
 	
 	public Integer getId() {
@@ -68,6 +69,13 @@ public class User {
 	}
 	public void setRole(Role role) {
 		this.role = role;
+	}
+	
+	public State getState() {
+		return state;
+	}
+	public void setState(State state) {
+		this.state = state;
 	}
 	
 }

@@ -30,7 +30,7 @@
 		            	<a href="Logout">Sair</a>
             		</c:when>
             		<c:otherwise>
-            			<a href="#">Cadastre-se</a>
+            			<a href="Register">Cadastre-se</a>
 		                |
 		                <a href="Login">Entrar</a>
             		</c:otherwise>

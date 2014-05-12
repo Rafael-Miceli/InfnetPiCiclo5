@@ -15,12 +15,14 @@ public class UserRepository {
 		List<Role> roles = new RoleRepository().getAll();		
 		
 		User admin = new User();
+		admin.setId(1);
 		admin.setEmail("rafael");
 		admin.setName("Rafael");
 		admin.setPassword("123");
 		admin.setRole(roles.get(0));
 		
 		User provider = new User();
+		provider.setId(2);
 		provider.setEmail("bagulho");
 		provider.setName("Bagulho");
 		provider.setRole(roles.get(1));
@@ -37,5 +39,12 @@ public class UserRepository {
 				return user;
 		}		
 		return null;	
+	}
+	
+	public void add(User user) {
+		Integer newId = _users.get(_users.size() - 1).getId() + 1;		
+		user.setId(newId);
+		
+		_users.add(user);
 	}
 }

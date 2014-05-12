@@ -2,6 +2,7 @@ package Controller;
 
 import java.io.IOException;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,15 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Model.User;
+import Repository.UserRepository;
 import Service.UserService;
 
 public class Login extends HttpServlet{
 	
 	private UserService _userService;
 
-	public Login() {
+	@Override
+	public void init(ServletConfig config) throws ServletException {
 		//Poor Mans Dependency Injection
-		_userService = new UserService();
+		_userService = new UserService((UserRepository)config.getServletContext().getAttribute("userRepository"));
 	}
 	
 	@Override

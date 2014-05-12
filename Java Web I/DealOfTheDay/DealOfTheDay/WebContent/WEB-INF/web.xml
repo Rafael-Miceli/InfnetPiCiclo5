@@ -44,6 +44,11 @@
   </servlet>
   
   <servlet>
+  	<servlet-name>Register</servlet-name>
+	<servlet-class>Controller.Register</servlet-class>	
+  </servlet>
+  
+  <servlet>
   	<servlet-name>ValidateVoucher</servlet-name>
 	<servlet-class>Controller.Deal.ValidateVoucher</servlet-class>	
   </servlet>  
@@ -66,6 +71,11 @@
   </servlet-mapping>
   
   <servlet-mapping>
+	  <servlet-name>Register</servlet-name>
+	  <url-pattern>/Register</url-pattern>	  	
+  </servlet-mapping>
+  
+  <servlet-mapping>
 	  <servlet-name>Details</servlet-name>
 	  <url-pattern>/DealDetails</url-pattern>	
   </servlet-mapping>
@@ -81,8 +91,8 @@
   </servlet-mapping>
   
   <servlet-mapping>
-	  <servlet-name>Deal</servlet-name>
-	  <url-pattern>/Deal</url-pattern>	
+	  <servlet-name>DealPayment</servlet-name>
+	  <url-pattern>/DealPayment</url-pattern>	
   </servlet-mapping>
   
   <servlet-mapping>

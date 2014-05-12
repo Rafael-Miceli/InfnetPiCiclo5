@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import Model.Categoria;
 import PaperAuthentication.ManagerHttpServlet;
+import Repository.DealRepository;
+import Repository.UserRepository;
 import Service.CategoriaService;
 import Service.DealService;
 
@@ -20,9 +23,10 @@ public class Deal extends ManagerHttpServlet{
 	private DealService _dealService;
 	private CategoriaService _categoriaService;
 	
-	public Deal() {
+	@Override
+	public void init(ServletConfig config) throws ServletException {
 		//Poor Mans Dependency Injection
-		_dealService = new DealService();
+		_dealService = new DealService((DealRepository)config.getServletContext().getAttribute("dealRepository"));
 		_categoriaService = new CategoriaService();
 	}
 	

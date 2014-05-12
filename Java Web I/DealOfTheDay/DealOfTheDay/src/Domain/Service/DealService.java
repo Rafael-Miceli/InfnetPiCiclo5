@@ -15,6 +15,11 @@ public class DealService {
 		_dealRepository = new DealRepository();
 	}
 	
+	public DealService(DealRepository dealRepository) {
+		//Poor Mans Dependency Injection
+		_dealRepository = dealRepository;
+	}
+	
 	public Deal FindDeal(Integer idDeal) {
 		return _dealRepository.GetDeal(idDeal);
 	}

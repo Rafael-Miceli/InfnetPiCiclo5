@@ -15,7 +15,7 @@ public class Deal {
 	private Categoria category;
 	private Boolean isSpotlight;
 	private Boolean isDealOfTheDay;
-	private City city;
+	private State state;
 	
 	
 	public Integer getId() {
@@ -95,11 +95,11 @@ public class Deal {
 		this.isDealOfTheDay = isDealOfTheDay;
 	}
 	
-	public City getCity() {
-		return city;
+	public State getState() {
+		return state;
 	}
-	public void setCity(City city) {
-		this.city = city;
+	public void setState(State state) {
+		this.state = state;
 	}
 	
 }

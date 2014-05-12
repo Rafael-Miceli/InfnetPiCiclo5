@@ -2,21 +2,24 @@ package Controller.Deal;
 
 import java.io.IOException;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Model.Voucher;
 import PaperAuthentication.ProviderHttpServlet;
+import Repository.VoucherRepository;
 import Service.VoucherService;
 
 public class ValidateVoucher extends ProviderHttpServlet {
 
 	private VoucherService _voucherService;
 
-	public ValidateVoucher() {
+	@Override
+	public void init(ServletConfig config) throws ServletException {
 		//Poor Mans Dependency Injection
-		_voucherService = new VoucherService();
+		_voucherService = new VoucherService((VoucherRepository)config.getServletContext().getAttribute("voucherRepository"));
 	}
 	
 	@Override

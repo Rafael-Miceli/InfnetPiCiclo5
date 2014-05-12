@@ -31,4 +31,14 @@ public class RoleRepository {
 	public List<Role> getAll(){
 		return _roles;
 	}
+	
+	public Role getById(Integer id){
+		
+		for(Role role : _roles)
+			if(role.getId() == id)
+				return role;
+		
+		return null;
+		
+	}
 }

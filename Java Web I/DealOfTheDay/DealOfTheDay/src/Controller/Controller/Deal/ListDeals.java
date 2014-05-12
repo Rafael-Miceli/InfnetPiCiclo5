@@ -3,6 +3,7 @@ package Controller.Deal;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,16 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import Model.Deal;
 import PaperAuthentication.ManagerHttpServlet;
+import Repository.DealRepository;
+import Service.CategoriaService;
 import Service.DealService;
 
 public class ListDeals extends ManagerHttpServlet {
 	
 	private DealService _dealService;
 
-	public ListDeals() {
+	@Override
+	public void init(ServletConfig config) throws ServletException {
 		//Poor Mans Dependency Injection
-		_dealService = new DealService();
-	}	
+		_dealService = new DealService((DealRepository)config.getServletContext().getAttribute("dealRepository"));
+	}
 	
 	@Override
 	protected void PerformGetOperations(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

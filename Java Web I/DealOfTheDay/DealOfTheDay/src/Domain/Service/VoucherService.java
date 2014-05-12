@@ -13,6 +13,11 @@ public class VoucherService {
 		_voucherRepository = new VoucherRepository();
 	}
 	
+	public VoucherService(VoucherRepository voucherRepository) {
+		//Poor Mans Dependency Injection
+		_voucherRepository = voucherRepository;
+	}
+	
 	public Voucher validateVoucher(String voucherCode) {
 		if (isVoucherCodeValid(voucherCode))
 		{			
