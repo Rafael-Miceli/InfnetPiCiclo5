@@ -10,12 +10,15 @@
 
     <!-- Header -->
 
-	<span>Estado</span>
-	<select name="ddlState">
-		<c:forEach items="${States}" var="state">
-			<option value="${state.id}" ${state.id == StateId ? 'selected' : '' } >${state.name}</option>
-		</c:forEach>
-	</select>
+	<form id="formState" method="post" action="Home.go">
+		<span>Estado</span>
+		<select name="ddlState" id="ddlState">
+			<option value="0">Todos...</option>
+			<c:forEach items="${States}" var="state">
+				<option value="${state.id}" ${state.id == StateId ? 'selected' : '' } >${state.name}</option>
+			</c:forEach>
+		</select>
+	</form>
 	
     <header class="cabecalho">
         <h1>Compras via web</h1>
@@ -42,8 +45,17 @@
 					
 			<a href="${urlDealDetail}" > ${spotlight.title} </a>
 			<br>				
-		</c:forEach>	
-				
+		</c:forEach>				
 		
 	</div>
+	
+	<script type="text/javascript">
+		$("#ddlState").change(function() {
+			$("#formState").submit();
+			
+			var id = $( "select option:selected" ).val();
+			
+			
+		});
+	</script>
 </m:master>

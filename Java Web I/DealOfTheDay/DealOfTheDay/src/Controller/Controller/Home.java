@@ -69,7 +69,35 @@ public class Home extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		this.processRequest(req, resp);
+		
+		HttpSession session = req.getSession();		
+		List<Deal> spotlights;
+		Deal dealOfTheDay;
+		
+		//Azeite no código
+		Integer stateId = session.getAttribute("State") != null ? Integer.parseInt(session.getAttribute("State").toString()) : 0;
+		stateId = Integer.parseInt(req.getParameter("ddlState") == null ? stateId.toString() : req.getParameter("ddlState")); 
+		
+		session.setAttribute("StateId", stateId);
+		
+		req.setAttribute("Categories", _categoryService.listCategories());
+		req.setAttribute("States", _stateService.listStates());
+		req.setAttribute("StateId", stateId);
+		
+		if (stateId > 0){		
+			dealOfTheDay = _dealService.findDealOfTheDayByState(stateId);
+			spotlights = _dealService.listSpotlightsByState(stateId);
+		}
+		else
+		{
+			dealOfTheDay = _dealService.findDealOfTheDay();
+			spotlights = _dealService.listSpotlights();
+		}
+		
+		req.setAttribute("SpotLightDeal", spotlights);
+		req.setAttribute("DealOfTheDay", dealOfTheDay);
+		
+		req.getRequestDispatcher("Home.jsp").forward(req, resp);
 	}
 
 	protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException

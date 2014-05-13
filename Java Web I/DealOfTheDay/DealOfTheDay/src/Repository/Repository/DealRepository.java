@@ -55,7 +55,7 @@ public class DealRepository {
 		deal2.setTitle("Titulo da promoção 2");
 		deal2.setTotalBuyed(175);
 		deal2.setCategory(categoria1);
-		deal2.setIsSpotlight(false);
+		deal2.setIsSpotlight(true);
 		deal2.setIsDealOfTheDay(true);
 		deal2.setState(sp);
 		
