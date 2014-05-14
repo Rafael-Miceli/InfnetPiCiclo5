@@ -33,7 +33,7 @@ public class UserRepository {
 		provider.setName("Bagulho");
 		provider.setRole(roles.get(1));
 		provider.setPassword("321");
-		admin.setState(states.get(1));
+		provider.setState(states.get(1));
 		
 		_users = new ArrayList<User>();
 		_users.add(admin);

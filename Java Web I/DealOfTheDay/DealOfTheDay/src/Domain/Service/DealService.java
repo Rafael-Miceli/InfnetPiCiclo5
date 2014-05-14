@@ -115,4 +115,8 @@ public class DealService {
 	public void remove(Integer idDeal) {
 		_dealRepository.delete(idDeal);
 	}
+	
+	public void increaseTotalBuyed(Integer id) {
+		_dealRepository.addTotalBuyed(id);
+	}
 }

@@ -6,8 +6,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<link href="Styles/site.css" rel="stylesheet" />
+	<link href="Scripts/JqueryUi/css/smoothness/jquery-ui-1.9.2.custom.css" rel="stylesheet" />	
     <link href="Styles/page/index.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/JqueryUi/js/jquery-ui-1.9.2.custom.js"></script>
 </head>
 <body>
 	<div class="top-bar">

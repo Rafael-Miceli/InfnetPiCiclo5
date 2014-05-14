@@ -138,5 +138,10 @@ public class DealRepository {
 		Deal dealToDelete = GetDeal(id);		
 		_deals.remove(dealToDelete);
 	}
+	
+	public void addTotalBuyed(Integer id) {
+		Deal dealToUpdate = GetDeal(id);		
+		dealToUpdate.setTotalBuyed(dealToUpdate.getTotalBuyed() + 1);
+	}
 
 }

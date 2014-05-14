@@ -1,5 +1,6 @@
 package Service;
 
+import Model.Deal;
 import Model.Voucher;
 import Repository.VoucherRepository;
 
@@ -41,6 +42,21 @@ public class VoucherService {
 	public Voucher getVoucherByCode(String voucherCode) {
 		_voucherToValidate = _voucherRepository.getByCode(voucherCode);
 		return _voucherToValidate;
+	}
+
+	public String createNewVoucher(Deal deal) {		
+		
+		String voucherCode = "ABSFREIOS"  ;
+		
+		Voucher voucher = new Voucher();
+		
+		voucher.setDeal(deal);
+		voucher.setValid(true);
+		voucher.setCode(voucherCode);
+		
+		_voucherRepository.add(voucher);
+		
+		return voucherCode;
 	}
 
 }

@@ -48,5 +48,12 @@ public class VoucherRepository {
 		
 		voucherToUpdate.setValid(false);
 	}
+	
+	public void add(Voucher voucher) {
+		Integer newId = _vouchers.get(_vouchers.size() - 1).getId() + 1;		
+		voucher.setId(newId);
+		
+		_vouchers.add(voucher);
+	}
 
 }
