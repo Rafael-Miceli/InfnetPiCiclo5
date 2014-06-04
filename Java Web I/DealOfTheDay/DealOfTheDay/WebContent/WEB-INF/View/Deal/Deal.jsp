@@ -18,7 +18,7 @@
 				
 				<br>
 				
-				<span>Preço: R$</span><input type="text" name="txtPrice" value="${DealModel.price}" required="required" />			
+				<span>Preço: R$</span><input type="text" name="txtPrice" value="${DealModel.price}" required="required" pattern="[0-9]+(\.[0-9]+)?" title="Use ponto para separar as casas decimais" />						
 				
 				
 				<br>
