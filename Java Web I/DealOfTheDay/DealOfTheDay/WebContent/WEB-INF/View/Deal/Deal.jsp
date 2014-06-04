@@ -8,24 +8,24 @@
 	<div id="interface">
 		<form method="post" action="Deal">
 			<div id="DealSummary" style="width:350px; ">
-				<span>Oferta: </span><input type="text" name="txtTitle" value="${DealModel.title}" />	
+				<span>Oferta: </span><input type="text" name="txtTitle" value="${DealModel.title}" required="required" autofocus="autofocus"" />	
 				
 				<br>	
 				
 				<span>Descrição: </span>			
 				<br>
-				<input type="text" name="txtDescription" value="${DealModel.description}"/>
+				<input type="text" name="txtDescription" value="${DealModel.description}" required="required"/>
 				
 				<br>
 				
-				<span>Preço: R$</span><input type="text" name="txtPrice" value="${DealModel.price}" />			
+				<span>Preço: R$</span><input type="text" name="txtPrice" value="${DealModel.price}" required="required" />			
 				
 				
 				<br>
 				
 				<span>Tempo para compra</span>
 				<br>
-				<input type="text" name="txtValidation" value="${DealValidation}"/>
+				<input type="text" name="txtValidation" value="${DealValidation}" required="required" pattern="\d{2}\/\d{2}\/\d{4}[-]\d{2}" />dd/mm/aaaa-horas
 										
 			</div>
 			
@@ -34,8 +34,9 @@
 				<span>Categoria</span>
 				<select name="ddlCategory">
 					<c:forEach items="${Categories}" var="category">
-						<option value="${category.id}" ${category.id == DealModel.category.id ? 'selected' : '' }>${category.nome}</option>
+						<option value="${category.id}" ${category.id == DealModel.category.id ? 'selected' : '' }>${category.nome}</option> -->
 					</c:forEach>
+					
 				</select>
 				
 				<br>
@@ -51,7 +52,7 @@
 				<select name="ddlState">
 					<c:forEach items="${States}" var="state">
 						<option value="${state.id}" ${state.id == DealModel.state.id ? 'selected' : '' } >${state.name}</option>
-					</c:forEach>
+					</c:forEach>  					
 				</select>
 				
 				<br>
@@ -67,7 +68,7 @@
 				<span>Regras da promoção</span>
 				<br>
 				<div id="DealRules" style="width:450px; margin-right: 50px; ">
-					<input type="text" name="txtRules" value="${DealModel.rules}"/>
+					<input type="text" name="txtRules" value="${DealModel.rules}" required="required"/>
 				</div>			
 				
 			</div>
