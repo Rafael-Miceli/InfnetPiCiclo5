@@ -30,7 +30,11 @@
         <div class="container">
             <ul>
             	<c:forEach var="category" items="${Categories}">
-            		<li><a href="#"><c:out value="${category.nome}" /></a></li>
+            		<c:url value="Home.go" var="urlHome">
+						<c:param name="Id" value="${category.id}" />
+					</c:url>
+					
+            		<li><a href="${urlHome}"><c:out value="${category.nome}" /></a></li>
             	</c:forEach>                
             </ul>
         </div>

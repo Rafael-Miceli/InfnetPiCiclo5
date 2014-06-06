@@ -18,7 +18,7 @@ import Service.CreditCardPaymentType;
 import Service.DealService;
 import Service.PaymentService;
 
-public class DealPayment extends ClientHttpServlet {
+public class DealPayment extends HttpServlet {
 
 	private DealService _dealService;
 	private PaymentService _paymentService;
@@ -31,7 +31,7 @@ public class DealPayment extends ClientHttpServlet {
 	}
 	
 	@Override
-	protected void PerformGetOperations(HttpServletRequest req,
+	protected void doGet(HttpServletRequest req,
 			HttpServletResponse resp) throws ServletException, IOException {
 		
 		Integer Id = Web.WebUtil.GetIdFromQueryString(req.getQueryString());

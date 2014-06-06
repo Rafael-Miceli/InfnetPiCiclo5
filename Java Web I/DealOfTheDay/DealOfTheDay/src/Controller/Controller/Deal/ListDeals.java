@@ -15,7 +15,7 @@ import Repository.DealRepository;
 import Service.CategoriaService;
 import Service.DealService;
 
-public class ListDeals extends ManagerHttpServlet {
+public class ListDeals extends HttpServlet {
 	
 	private DealService _dealService;
 
@@ -26,7 +26,7 @@ public class ListDeals extends ManagerHttpServlet {
 	}
 	
 	@Override
-	protected void PerformGetOperations(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Deal> deals = _dealService.listDeals();
 		
 		req.setAttribute("deals", deals);

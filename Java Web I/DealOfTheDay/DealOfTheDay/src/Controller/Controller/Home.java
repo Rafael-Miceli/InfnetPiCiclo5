@@ -42,6 +42,7 @@ public class Home extends HttpServlet{
 		List<Deal> spotlights;
 		Deal dealOfTheDay;
 		Integer stateId = session.getAttribute("State") != null ? Integer.parseInt(session.getAttribute("State").toString()) : 0;
+		Integer categoryId = Web.WebUtil.GetIdFromQueryString(req.getQueryString());
 		
 		req.setAttribute("Categories", _categoryService.listCategories());
 		req.setAttribute("States", _stateService.listStates());
@@ -55,6 +56,15 @@ public class Home extends HttpServlet{
 		else
 		{
 			dealOfTheDay = _dealService.findDealOfTheDay();
+			spotlights = _dealService.listSpotlights();
+		}
+		
+		if (categoryId > 0)
+		{
+			spotlights = _dealService.getDealsByCategory(categoryId);
+		}
+		else
+		{
 			spotlights = _dealService.listSpotlights();
 		}
 		

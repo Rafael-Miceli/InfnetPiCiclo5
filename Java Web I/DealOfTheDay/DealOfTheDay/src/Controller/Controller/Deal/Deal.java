@@ -20,7 +20,7 @@ import Service.CategoriaService;
 import Service.DealService;
 import Service.StateService;
 
-public class Deal extends ManagerHttpServlet{
+public class Deal extends HttpServlet{
 	
 	private DealService _dealService;
 	private CategoriaService _categoriaService;
@@ -35,7 +35,7 @@ public class Deal extends ManagerHttpServlet{
 	}
 	
 	@Override
-	protected void PerformGetOperations(HttpServletRequest req,
+	protected void doGet(HttpServletRequest req,
 			HttpServletResponse resp) throws ServletException, IOException {
 		
 		Integer Id = Web.WebUtil.GetIdFromQueryString(req.getQueryString());

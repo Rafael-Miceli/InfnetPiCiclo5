@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,7 +13,7 @@ import PaperAuthentication.ProviderHttpServlet;
 import Repository.VoucherRepository;
 import Service.VoucherService;
 
-public class ValidateVoucher extends ProviderHttpServlet {
+public class ValidateVoucher extends HttpServlet {
 
 	private VoucherService _voucherService;
 
@@ -23,7 +24,7 @@ public class ValidateVoucher extends ProviderHttpServlet {
 	}
 	
 	@Override
-	protected void PerformGetOperations(HttpServletRequest req,
+	protected void doGet(HttpServletRequest req,
 			HttpServletResponse resp) throws ServletException, IOException {		
 		
 		req.getRequestDispatcher("WEB-INF/View/Deal/ValidateVoucher.jsp").forward(req, resp);
